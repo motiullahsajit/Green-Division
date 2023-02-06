@@ -1,24 +1,40 @@
-#include<stdio.h>
 
-int main()
+#include <stdio.h>
+
+void main ()
 {
-    int q,d,p;
 
-    while (scanf("%d",&q) && q != 0){
-    
-        scanf("%d %d",&d,&p);
-        int pages = (q*d*p)/ (p-q);
+	int x;
+	unsigned i;
+	unsigned n;
+	char comandos[1001];
+	char dir[] = "NLSO";
+	
+	while (scanf("%u", &n), n)
+	{
 
-        if(pages > 1){
-            printf("%d paginas\n",pages);
-        }else{
-            printf("%d pagina\n",pages);
+		scanf("%s", comandos);
 
-        }
-    }
-    
+		x = 1;
+		for (i = 0; i < n; ++i)
+			if (comandos[i] == 'D')
+			{
 
-    
-    return 0;
+				++x;
+				if (x > 4)
+					x = 1;
+
+			}
+			else
+			{
+				--x;
+				if (x == 0)
+					x = 4;
+
+			}
+
+		printf("%c\n", dir[x - 1]);
+
+	}
 
 }

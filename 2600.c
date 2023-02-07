@@ -2,11 +2,13 @@
 
 int main(){
 
-    int t,dice, a[6],find[7]={0};
+    int t;
 
     scanf("%d",&t);
 
     for(int i=0;i<t;i++){
+
+        int dice = 1, a[6],find[7]={0};
 
         for(int j=0;j<6;j++){
 
@@ -31,13 +33,11 @@ int main(){
                 printf("NAO\n");
             }
         }else{
-                printf("NAO\n");
+            printf("NAO\n");
         }
-
 
     }
 
-    
-
+    return 0;
 
 }

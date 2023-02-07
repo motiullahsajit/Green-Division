@@ -1,33 +1,25 @@
 #include<stdio.h>
 
 int main(){
+    int n,number,divisor_sum;
+    scanf("%d",&n);
 
-    int n;
+    for(int i=0;i<n;i++){
 
-    while (scanf("%d",&n) != EOF) 
-    {
-        int temp, book_code[n];
-        for(int i=0; i<n; i++){
-            scanf("%d",&book_code[i]);
-        }
-
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
-                if(book_code[i] < book_code[j]){
-                    temp = book_code[i];
-                    book_code[i] = book_code[j];
-                    book_code[j] = temp;
-                }
+        scanf("%d", &number);
+        divisor_sum = 0;
+        for(int j=1;j<=(number/2);j++){
+            if(number%j == 0){
+                divisor_sum += j;
             }
         }
 
-        for(int i=0; i<n; i++){
-            printf("%04d\n", book_code[i]);
+        if(divisor_sum == number){
+            printf("%d eh perfeito\n",number);
+        }else{
+            printf("%d nao eh perfeito\n",number);
         }
 
-
     }
-    
 
-    return 0;
 }

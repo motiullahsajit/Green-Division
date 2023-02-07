@@ -1,22 +1,31 @@
 #include <stdio.h>
 
-
-int main() {
+int main(){
+    int a, b, number, i, j, k, digits, qtd, flag;
+    int numero[4];
     
-    long long i, n, k;
-
-    while (scanf("%lld", &k) && k != 0) {
-        n = 0;
-        if (k == 0) break;
-
-        for (i = 1; i <= k; i += 2) {
-            n += i;
-            if (n > k) break;
-            if (i > 1) printf(" ");
-            printf("%lld", n);
-        }
-        printf("\n");
+    while(scanf("%d %d", &a, &b) == 2){
+          qtd = 0;
+          for(i = a; i <= b; i++){
+                digits = 0;
+                flag = 0;
+                number = i;
+                while (number != 0){
+                      numero[digits] = number%10;
+                      number /= 10;
+                      digits++;
+                }
+                for(j = 0; j < digits; j++){
+                      for(k = j+1; k < digits; k++){
+                            if(numero[j] == numero[k]){
+                                 flag = 1;
+                            }
+                      }
+                }
+                if(flag == 0) qtd++;
+          }
+          printf("%d\n",qtd);
     }
-
+    
     return 0;
 }

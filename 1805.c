@@ -3,12 +3,11 @@
 int main(){
 
 
-    long long int a,b,n,sum=0;
+    long long int a,b,sum;
 
     scanf("%lld %lld",&a, &b);
 
-    n = (b-a)+1;
-    sum = ((float)n/2) * (2*a+(n-1));
+    sum = (a+b) * (b-a+1)/2;
 
 
     printf("%lld\n",sum);

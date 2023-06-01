@@ -1,43 +1,39 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int main(){
+int main()
+{
+    int bills[6] = {2, 5, 10, 20, 50, 100};
 
-    int m,n,i,j,k,l,x;
-
-    double d;
-
-    int arr[6]={2,5,10,20,50,100};
+    int x, y, flag, bill;
 
     while (1)
     {
-        l=0;
-        scanf("%d %d",&m,&n);
-        if(m==0 && n==0) break;
+        flag = 0;
+        scanf("%d %d", &x, &y);
 
-        x = n - m;
-
-        if(x> 100) x -= 100;
-        else if(x > 50) x -= 50;
-        else if(x > 20) x -= 20;
-        else if(x > 10) x -= 10;
-        else if(x > 5) x -= 5;
-        else if(x >=2) x -= 2;
-
-        for(i = 5; i>=0; i--){
-            d = x - arr[i];
-            if(d == 0){
-                l = 1;
-               break;
+        if (x == 0 && y == 0)
+        {
+            break;
+        }
+        bill = y - x;
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = i + 1; j < 6; j++)
+            {
+                if (bill == (bills[i] + bills[j]))
+                {
+                    flag = 1;
+                    break;
+                }
+                if (flag == 1)
+                    break;
             }
         }
-
-        if(l == 1) printf("possible\n");
-        else printf("impossible\n");
-
-
+        if (flag == 1)
+            printf("possible\n");
+        else
+            printf("impossible\n");
     }
-    
-
 
     return 0;
 }
